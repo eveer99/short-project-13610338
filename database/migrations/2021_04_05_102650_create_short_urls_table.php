@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ShortCutTable extends Migration
+class CreateShortUrlsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class ShortCutTable extends Migration
      */
     public function up()
     {
-        Schema::create('short_links', function (Blueprint $table) {
+        Schema::create('short_urls', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('ShortUrl');
-            $table->string('LongUrl');
+            $table->text('long_url');
+            $table->string('short_url');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class ShortCutTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('short_links');
+        Schema::dropIfExists('short_urls');
     }
 }

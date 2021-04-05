@@ -15,7 +15,8 @@
 //    return view('welcome');
 //});
 
-Route::get('/new', 'ShortController@index');
-Route::post('/', 'ShortController@store')->name('shorten-link');
+Route::get('/', 'ShortController@index');
 
-Route::get('{ShortUrl}', 'ShortController@create');
+Route::get('/new', 'ShortController@create');
+Route::post('/save', 'ShortController@store');
+Route::get('/gt/{code}', 'ShortController@check');
