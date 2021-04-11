@@ -36,7 +36,7 @@ class ShortController extends Controller
             'short_url'=>$short_url
         ]);
 
-        return redirect('/')->with('success', 'บันทึกข้อมูลเรียบร้อยแล้ว');
+        return redirect('/')->with('success', 'สำเร็จ');
     }
     public function randString() {
 //        dd(strlen($characters));
@@ -72,41 +72,3 @@ class ShortController extends Controller
         return 'ไม่พบรหัส Short URL นี้';
     }
 }
-
-
-
-
-
-
-
-//    public function store(Request $request){
-//        $random_token = Str::random(8);
-
-
-//        $input['LongUrl'] = $request->org_link;
-//        return view('show')->with('success','short.local/gt/'.$short->shortUrl);
-//        $short = ShortLink::latest()->get();
-
-//        $random_token = Str::random(8);
-
-//        DB::table('short_links')->insert([
-//            $input['LongUrl'] = $request->org_link,
-//            'ShortUrl' => $request->$random_token,
-//        ]);
-
-//        $random_token = Str::random(8);
-//        $data['LongUrl'] = $request->get('org_link');
-//        $data['ShortUrl'] = $random_token;
-//
-//        ShortLink::create($data);
-
-//        return view('show', compact('short'))->with('shorten-link');
-//    }
-
-//    public function show($id)
-//    {
-////        $find = ShortLink::where('ShortURL', $ShortURL)->first();
-//        $short = ShortLink::find($id);
-//
-//        return view('show', compact('result'));
-//    }

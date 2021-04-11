@@ -2,13 +2,23 @@
 <html>
 <head>
     <title>Short URL</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
-</head>
-<body>
-    <div class="container mt-5">
-        <h1>Create URL Short</h1>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"/>
 
-        <div class="card">
+    <style>
+        .container {
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Create URL Short</h1>
+
+        <div class="card mt-5">
             <div class="card-header">
                 <form method="POST" action="{{ url('/save') }}">
                     @csrf

@@ -4,32 +4,49 @@
     <title>Short URL</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
 </head>
+
 <body class="container">
     <br>
+
     @if($message = Session::get('success'))
-        <p>{{ $message }}</p>
+        <div class="alert alert-success">
+            <strong>{{ $message }} !</strong> บันทึกข้อมูลเรียบร้อยแล้ว.
+        </div>
     @endif
 
     <br>
-    <a href="/new">Create</a>
+
+    <center>
+        <div class="col-12">
+            <div class="row">
+                <p class="col-11">Your Quota Remaining {{ 10-count($urls) }}/10</p>
+                <button type="button" class="col-1 btn btn-success" onclick="window.location.href='/new'">Create</button>
+{{--                <a class="col-6 justify-end" href="/new">Create</a>--}}
+            </div>
+        </div>
+    </center>
+
     <br>
-    <p>Your Quota Remaining {{ 10-count($urls) }}/10</p>
 
     @if(!$urls->isEmpty())
-        <table class="table table-bordered table-sm">
-            <tr>
-                <td>Long URL</td>
-                <td>Short URL</td>
-                <td>Created_at</td>
-            </tr>
-
-            @foreach($urls as $url)
+        <table class="table">
+            <thead class="thead-light">
                 <tr>
-                    <td>{{ $url->long_url }}</td>
-                    <td><a href="/gt/{{ $url->short_url }}" target="_bank">{{ $url->short_url }}</td>
-                    <td>{{ $url->created_at }}</td>
+                    <th class="text-center">Long URL</th>
+                    <th class="text-center">Short URL</th>
+                    <th class="text-center">Created_at</th>
                 </tr>
-            @endforeach
+            </thead>
+
+            <tbody>
+                @foreach($urls as $url)
+                    <tr>
+                        <td>{{ $url->long_url }}</td>
+                        <td class="text-center"><a href="/gt/{{ $url->short_url }}" target="_bank">{{ $url->short_url }}</td>
+                        <td class="text-center">{{ $url->created_at }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
         </table>
     @endif
 </body>
