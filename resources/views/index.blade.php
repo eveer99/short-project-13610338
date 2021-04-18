@@ -35,6 +35,7 @@
                     <th class="text-center">Long URL</th>
                     <th class="text-center">Short URL</th>
                     <th class="text-center">Created_at</th>
+                    <th class="text-center">Delete</th>
                 </tr>
             </thead>
 
@@ -44,6 +45,13 @@
                         <td>{{ $url->long_url }}</td>
                         <td class="text-center"><a href="/gt/{{ $url->short_url }}" target="_bank">{{ $url->short_url }}</td>
                         <td class="text-center">{{ $url->created_at }}</td>
+{{--                        <td class="text-center">--}}
+{{--                            <button class="btn btn-danger servideletebtn">{{ $user->id }}Delete</button>--}}
+{{--                        </td>--}}
+{{--                        <td><a href = "delete/{{ $url->id }}">Delete</a></td>--}}
+                        <td>
+                            <button type="button" class="btn btn-danger" onclick="window.location.href='/delete/{{ $url->id }}'">Delete</button>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
@@ -51,3 +59,4 @@
     @endif
 </body>
 </html>
+

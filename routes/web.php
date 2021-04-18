@@ -20,3 +20,4 @@ Route::get('/', 'ShortController@index');
 Route::get('/new', 'ShortController@create');
 Route::post('/save', 'ShortController@store');
 Route::get('/gt/{code}', 'ShortController@check');
+Route::get('delete/{id}','ShortController@destroy');

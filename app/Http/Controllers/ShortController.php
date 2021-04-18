@@ -71,4 +71,10 @@ class ShortController extends Controller
 
         return 'ไม่พบรหัส Short URL นี้';
     }
+
+    public function destroy($id) {
+        DB::delete('delete from short_urls where id = ?',[$id]);
+
+        return "ลบข้อมูลเรียบร้อยแล้ว";
+    }
 }
